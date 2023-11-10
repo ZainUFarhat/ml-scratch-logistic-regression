@@ -6,7 +6,7 @@ The following is my from scratch implementation of the Logistic Regression algor
 
 ### **Dataset**
 
-For datasets I used two datasets: \
+I tested the performance of my model on two datasets: \
 \
     &emsp;1. Breast Cancer Dataset \
     &emsp;2. Diabetes Dataset \
