@@ -34,6 +34,7 @@ For each dataset I load it and scale the features variables to the range [0, 1].
 
 For each dataset I will list the number of epochs, learning rate, test Cross Entropy loss score, and Accuracy score.
 In addition I offer three visualization plots for a better assessment.
+Because of the high dimensionality of each dataset I chose two features that I assumed to have the most correspondance and used them for visualizing my scatter plots and decision boundaries.
 
 **1.** Breast Cancer Dataset:
 
@@ -46,6 +47,8 @@ In addition I offer three visualization plots for a better assessment.
      - Accuracy: 94.74%
 
 - See visualizations below:
+
+For this I chose the mean radius and mean texture features.
 
 ![alt text](https://github.com/ZainUFarhat/ml-scratch-logistic-regression/blob/main/plots/bc/bc_scatter.png?raw=true)
 
@@ -64,6 +67,8 @@ In addition I offer three visualization plots for a better assessment.
      - Accuracy: 77.53%
 
 - See visualizations below:
+
+For this I chose the ldl and hdl features.
 
 ![alt text](https://github.com/ZainUFarhat/ml-scratch-logistic-regression/blob/main/plots/db/db_scatter.png?raw=true)
 
