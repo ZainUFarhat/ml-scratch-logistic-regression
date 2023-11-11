@@ -44,7 +44,7 @@ Because of the high dimensionality of each dataset I chose two features that I a
  
 - Numerical Result:
      - Cross Entropy Test Loss = 7.094325127354754e-14
-     - Accuracy: 94.74%
+     - Accuracy = 94.74%
 
 - See visualizations below:
 
@@ -64,7 +64,7 @@ For this I chose the mean radius and mean texture features.
  
 - Numerical Result:
      - Cross Entropy Test Loss = 241.7714
-     - Accuracy: 77.53%
+     - Accuracy = 77.53%
 
 - See visualizations below:
 
