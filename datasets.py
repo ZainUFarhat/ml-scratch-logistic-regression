@@ -59,7 +59,37 @@ class Datasets():
 
         # return
         return X, y, feature_names, class_names, X_train, X_test, y_train, y_test
-    
+
+    # simple xy
+    def simple_Xy(self, n_samples, n_features, n_classes):
+        
+        """
+        Description:
+            Simple X vs. y dataset created by sklearn
+        
+        Parameters:
+            n_samples: number of samples to genarate
+            n_features: number of features (corresponds to number of dimension)
+            n_classes: number of classes for our dummy classification dataset
+        
+        Returns:
+            X, y, X_train, X_test, y_train, y_test
+        """
+
+        # create dataset
+        X, y = datasets.make_classification(n_samples = n_samples, n_features = n_features, n_classes = n_classes,
+                                                                                                    random_state = self.random_state)
+
+        # normalize both X & y to range = [0, 1] to avoid explosive computations
+        X = minmax_scale(X, feature_range = (0, 1), axis = 0, copy = True)
+        # y = minmax_scale(y, feature_range = (0, 1), axis = 0, copy = True)
+
+        # perform train test split
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = self.test_size, random_state = self.random_state)
+
+        # return
+        return X, y, X_train, X_test, y_train, y_test
+
     # diabetes
     def load_diabetes(self):
 

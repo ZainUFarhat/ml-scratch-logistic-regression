@@ -1,5 +1,5 @@
-# utils
-from utils import *
+# numpy
+import numpy as np
 
 # logistic regression
 class LogisticRegression():
@@ -29,6 +29,55 @@ class LogisticRegression():
         # weights and biases
         self.w = []
         self.b = 0
+
+    # sigmoid
+    def sigmoid(self, x):
+    
+        """
+        Description:
+            Sigmoid Activation Function
+        
+        Parameters:
+            x: input to sigmoid activation function
+
+        Returns:
+            sigmoid
+        """
+
+        # implement sigmoid function
+        sigmoid = 1 / (1 + np.exp(-1 * x))
+
+        # return
+        return sigmoid
+
+    # cross entropy loss
+    def cross_entropy_loss(self, y, y_pred):
+    
+        """
+        Description:
+            Calculate the cross entropy loss between true and predicted labels
+
+        Parameters:
+            y: true labels
+            y_pred: predicted labels
+
+        Returns:
+            cross_entropy_loss  
+        """
+
+        # we will set an epsilon value for clipping our arrays
+        eps = 1e-15
+
+        # we will clip the values predicted to avoid log(0) computational error
+        # we'll choose epsilon as a min value and 1 - epsilon as a max value
+        # since we have probabilites for y_pred we can set min and max in range (0, 1)
+        y_pred = np.clip(y_pred, eps, 1 - eps)
+
+        # calculate loss 
+        cross_entropy_loss = -1 * np.sum(y * np.log(y_pred))
+
+        # return
+        return cross_entropy_loss
     
     # fit
     # train + simple gradient descent for optimization
@@ -61,10 +110,10 @@ class LogisticRegression():
             linear_prediction = np.dot(X, self.w) + self.b
 
             # find predictions
-            y_preds = sigmoid(linear_prediction)
+            y_preds = self.sigmoid(linear_prediction)
 
             # calculate cross entropy loss and append it to list
-            cross_entropy = cross_entropy_loss(y, y_preds)
+            cross_entropy = self.cross_entropy_loss(y, y_preds)
             cross_entropy_losses.append(cross_entropy)
 
             # compute the first derivatives of cross entropy loss with respect to weights and bias respectively
@@ -96,7 +145,7 @@ class LogisticRegression():
         linear_prediction = np.dot(X, self.w) + self.b
 
         # find predictions
-        y_pred = sigmoid(linear_prediction)
+        y_pred = self.sigmoid(linear_prediction)
 
         # assign classes to our predictions, remember the output of sigmoid activation is a probability
         # if prediction is less than 0.5 it takes class 0 else class 1

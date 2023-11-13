@@ -6,9 +6,10 @@ The following is my from scratch implementation of the Logistic Regression algor
 
 ### **Dataset**
 
-I tested the performance of my model on two datasets: \
+I tested the performance of my model on three datasets: \
 \
-    &emsp;1. Breast Cancer Dataset \
+    &emsp;1. Simple Xy Dataset \
+    &emsp;2. Breast Cancer Dataset \
     &emsp;2. Diabetes Dataset \
 \
 For each dataset I load it and scale the features variables to the range [0, 1]. This is to avoid the magnitude differences that can arise during the fitting process.
@@ -21,7 +22,7 @@ For each dataset I load it and scale the features variables to the range [0, 1].
 
 **3.** Since code is modular, main.py can easily: \
 \
-    &emsp;**i.** Load the two datasets \
+    &emsp;**i.** Load the three datasets \
     &emsp;**ii.** Split data into train and test sets \
     &emsp;**iii.** Build a logistic regressor \
     &emsp;**iv.** Fit the logistic regressor \
@@ -36,7 +37,28 @@ For each dataset I will list the number of epochs, learning rate, test Cross Ent
 In addition I offer three visualization plots for a better assessment.
 Because of the high dimensionality of each dataset I chose two features that I assumed to have the most correspondance and used them for visualizing my scatter plots and decision boundaries.
 
-**1.** Breast Cancer Dataset:
+**1.** Simple Xy Dataset:
+
+- Hyperparameters:
+     - Number of epochs = 1000
+     - Learning rate = 0.1
+ 
+- Numerical Result:
+     - Cross Entropy Test Loss = 518.0816
+     - Accuracy = 89.0%
+
+- See visualizations below:
+
+For this I chose the first two features.
+
+![alt text](https://github.com/ZainUFarhat/ml-scratch-logistic-regression/blob/main/plots/xy/xy_scatter.png?raw=true)
+
+![alt text](https://github.com/ZainUFarhat/ml-scratch-logistic-regression/blob/main/plots/xy/xy_decision_boundary.png?raw=true)
+
+![alt text](https://github.com/ZainUFarhat/ml-scratch-logistic-regression/blob/main/plots/xy/xy_loss.png?raw=true)
+
+
+**2.** Breast Cancer Dataset:
 
 - Hyperparameters:
      - Number of epochs = 1000
@@ -56,7 +78,7 @@ For this I chose the mean radius and mean texture features.
 
 ![alt text](https://github.com/ZainUFarhat/ml-scratch-logistic-regression/blob/main/plots/bc/bc_loss.png?raw=true)
 
-**2.** Diabetes Dataset:
+**3.** Diabetes Dataset:
 
 - Hyperparameters:
      - Number of epochs = 100
